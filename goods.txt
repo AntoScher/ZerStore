@@ -1,5 +1,7 @@
-Название магазина: Gross
-Адрес магазина: main st 100
+Название магазина: Mood
+Адрес магазина: Main st 12
 Товары:
-- banana:10: 10.0
-- tomates: 5.0
+orange: 5.0
+tomato: 3.0
+potato: 1.0
+banana: 2.0
