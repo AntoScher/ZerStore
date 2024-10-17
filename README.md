@@ -1,0 +1,2 @@
+# ZerStore
+ storClass
