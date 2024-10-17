@@ -1,5 +1,3 @@
-# store.py
-
 class Store:
     def __init__(self, name, address):
         self.name = name

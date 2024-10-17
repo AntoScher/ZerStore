@@ -1,22 +1,35 @@
-# main.py
-
 from store import Store
 
-# Создание экземпляра класса Store
-store = Store("Fresh Market", "123 Main St")
+def main():
+    name = input("Введите название магазина: ")
+    address = input("Введите адрес магазина: ")
 
-# Добавление товаров
-store.add_item("apples", 0.5)
-store.add_item("bananas", 0.75)
+    store = Store(name, address)
 
-# Получение цены товара
-print(store.get_price("apples"))  # Вывод: 0.5
-print(store.get_price("oranges"))  # Вывод: None (товар отсутствует)
+    while True:
+        item_name = input("Введите название товара: ")
+        price = float(input("Введите цену товара: "))
 
-# Обновление цены товара
-store.update_price("apples", 0.6)
-print(store.get_price("apples"))  # Вывод: 0.6
+        store.add_item(item_name, price)
 
-# Удаление товара
-store.remove_item("bananas")
-print(store.get_price("bananas"))  # Вывод: None (товар удален)
+        continue_input = input("Будете ли вы еще вводить атрибуты? (Y/N): ")
+        if continue_input.lower() != 'y':
+            break
+
+    # Вывод списка введенных атрибутов
+    print(f"Название магазина: {store.name}")
+    print(f"Адрес магазина: {store.address}")
+    print("Товары:")
+    for item, price in store.items.items():
+        print(f"- {item}: {price}")
+
+    # Сохранение в файл goods.txt
+    with open('goods.txt', 'w') as file:
+        file.write(f"Название магазина: {store.name}\n")
+        file.write(f"Адрес магазина: {store.address}\n")
+        file.write("Товары:\n")
+        for item, price in store.items.items():
+            file.write(f"- {item}: {price}\n")
+
+if __name__ == "__main__":
+    main()
